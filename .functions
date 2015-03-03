@@ -244,3 +244,9 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Set the terminal tab name
+function tabname {
+    echo -ne "\033]0;"$*"\007"
+}
+
