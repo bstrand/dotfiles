@@ -38,7 +38,7 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
 fi;
 
 # Enable tab completion for the aws cli
-if which aws > /dev/null &&  && [ -f /usr/local/bin/aws_completer ]; then
+if which aws > /dev/null && [ -f /usr/local/bin/aws_completer ]; then
 	complete -C aws_completer aws;
 fi;
 
