@@ -117,5 +117,41 @@ brew install watch
 # Install io.js
 # brew install iojs
 
+# Install apps from casks
+brew install caskroom/cask/brew-cask
+
+# Apps
+apps=(
+  alfred
+  appcleaner
+  atom
+  bartender
+  disk-inventory-x
+  flux
+  google-chrome
+  iterm2
+  mailbox
+  magicprefs
+  qlmarkdown
+  qlprettypatch
+  qlstephen
+  quicklook-json
+  seil
+  shiori
+  sizeup
+  skype
+  tower
+  transmission
+  transmit
+  tunnelblick
+  vagrant
+  virtualbox
+  vlc
+)
+
+# Install apps to /Applications
+# Default is: /Users/$user/Applications
+brew cask install --appdir="/Applications" ${apps[@]}
+
 # Remove outdated versions from the cellar.
 brew cleanup
