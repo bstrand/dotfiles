@@ -44,6 +44,11 @@ if which aws > /dev/null && [ -f /usr/local/bin/aws_completer ]; then
 	complete -C aws_completer aws;
 fi;
 
+# Enable Python virtualenv wrapper
+if which virtualenv > /dev/null && [ -f "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
+	source /usr/local/bin/virtualenvwrapper_lazy.sh;
+fi;
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
