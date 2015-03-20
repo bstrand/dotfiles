@@ -44,6 +44,10 @@ brew install wget --with-iri
 # Install AWS CLI
 brew install awscli
 
+# Install Python
+brew install python
+brew install python3
+
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
 # see http://git.io/brew-narwhal-ringo.
