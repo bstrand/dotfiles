@@ -132,10 +132,12 @@ apps=(
   bartender
   disk-inventory-x
   flux
+  gas-mask
   google-chrome
   iterm2
   mailbox
   magicprefs
+  noisy
   qlmarkdown
   qlprettypatch
   qlstephen
