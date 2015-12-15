@@ -130,19 +130,20 @@ apps=(
   appcleaner
   atom
   bartender
+  beyond-compare
   disk-inventory-x
   flux
   gas-mask
   google-chrome
   iterm2
-  mailbox
+  #mailbox
   magicprefs
   noisy
   qlmarkdown
-  qlprettypatch
+  #qlprettypatch
   qlstephen
   quicklook-json
-  seil
+  #seil
   shiori
   sizeup
   skype
