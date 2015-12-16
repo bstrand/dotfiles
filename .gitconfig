@@ -141,7 +141,7 @@
 
     # Detect copies as well as renames
     renames = copies
-    tool = bcomp
+    tool = bc3
 
 [help]
 
@@ -152,7 +152,7 @@
 
     # Include summaries of merged commits in newly created merge commit messages
     log = true
-    tool = bcomp
+    tool = bc3
 
 [push]
 
@@ -189,7 +189,5 @@
     helper = osxkeychain
 [difftool]
     bc3 = trustExitCode
-    bcomp = trustExitCode
 [mergetool]
     bc3 = trustExitCode
-    bcomp = trustExitCode
