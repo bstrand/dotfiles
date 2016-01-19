@@ -258,10 +258,10 @@ function tabname {
 dstop() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
-drm() { docker rm $(docker ps -a -q); }
+drmc() { docker rm $(docker ps -a -q); }
 
 # Remove all images
-dri() { docker rmi $(docker images -q); }
+drmi() { docker rmi $(docker images -q); }
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
