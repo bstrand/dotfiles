@@ -148,7 +148,13 @@ alias use-iojs="brew unlink node && brew link --force iojs"
 alias use-node="brew unlink iojs && brew link --force node"
 
 # Switch to Anaconda Python
-alias useanaconda="export PATH=\"/Users/bstrand/anaconda/bin:$PATH\""
+# alias useanaconda="export PATH=\"/Users/bstrand/anaconda/bin:$PATH\""
+export PRE_ANACONDA_PATH="$PATH"
+alias anaOn="export PRE_ANACONDA_PATH=\"$PATH\"; export PATH=\"/Users/bstrand/anaconda/bin:$PATH\""
+alias anaOff="export PATH=\"$PRE_ANACONDA_PATH\""
+
+# Youtube to MP3
+alias youtube-mp3="youtube-dl -x --audio-format mp3 --audio-quality 7 "
 
 # ------------------------------------
 # Docker alias and function
