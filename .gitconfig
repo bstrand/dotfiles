@@ -17,7 +17,9 @@
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 
     # View abbreviated SHA, description, and history graph of the latest 20 commits
-    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    l    = log --graph --pretty=oneline --abbrev-commit -n 20
+    lol  = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 	# View the current working tree status using the short format
 	s = status -s
