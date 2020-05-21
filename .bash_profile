@@ -1,7 +1,8 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+# Moved to .path and /etc/paths
+# # Add `~/bin` to the `$PATH`
+# export PATH="$HOME/bin:$PATH";
+# export PATH="/usr/local/sbin:$PATH"
+# export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -28,7 +29,7 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+if which brew &> /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
 	source "$(brew --prefix)/etc/bash_completion";
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
@@ -39,16 +40,6 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
 	complete -o default -o nospace -F _git g;
 fi;
 
-# Enable tab completion for the aws cli
-if which aws > /dev/null && [ -f /usr/local/bin/aws_completer ]; then
-	complete -C aws_completer aws;
-fi;
-
-# Enable Python virtualenv wrapper
-if which virtualenv > /dev/null && [ -f "/usr/local/bin/virtualenvwrapper_lazy.sh" ]; then
-	source /usr/local/bin/virtualenvwrapper_lazy.sh;
-fi;
-
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
@@ -57,4 +48,21 @@ fi;
 complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
-complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter TweetDeck Chrome Firefox Evernote" killall;
+complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# Enable tab completion for the aws cli
+if which aws > /dev/null && [ -f /usr/local/bin/aws_completer ]; then
+	complete -C aws_completer aws;
+fi;
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# gcloud
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+	eval "$(pyenv init -)"
+fi
